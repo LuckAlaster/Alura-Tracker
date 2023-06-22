@@ -5,44 +5,57 @@
     </div>
 
     <div class="column is-tree-quarsalvarTarefater">
-      <Formulario @aoSalvarTarefa="salvarTarefa"/>
+      <Formulario @aoSalvarTarefa="salvarTarefa" />
       <div class="lista">
-        <Tarefa v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" />
+        <Tarefa
+          v-for="(tarefa, index) in tarefas"
+          :key="index"
+          :tarefa="tarefa"
+        />
+        <box v-if="listaEstaVazia"> Você não está muito produtivo hoje :( </box>
       </div>
     </div>
-    
   </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import BarraLateral from "./components/BarraLateral.vue";
+import Box from "./components/Box.vue";
 import Formulario from "./components/Formulario.vue";
 import Tarefa from "./components/Tarefa.vue";
-import ITarefa from './interfaces/ITarefa'
+import ITarefa from "./interfaces/ITarefa";
 
 export default defineComponent({
-  components: { 
-    BarraLateral, 
+  components: {
+    BarraLateral,
     Formulario,
-    Tarefa
+    Tarefa,
+    Box,
   },
   name: "app",
-  data (){
-    return{
-      tarefas: [] as ITarefa[]
-    }
+  data() {
+    return {
+      tarefas: [] as ITarefa[],
+    };
   },
+
+  computed: {
+    listaEstaVazia(): boolean {
+      return this.tarefas.length == 0;
+    },
+  },
+
   methods: {
-    salvarTarefa (tarefa: ITarefa){
-      this.tarefas.push(tarefa)
-    }
-  }
+    salvarTarefa(tarefa: ITarefa) {
+      this.tarefas.push(tarefa);
+    },
+  },
 });
 </script>
 
 <style>
-.lista{
+.lista {
   padding: 1.25rem;
 }
 </style>
