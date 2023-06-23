@@ -1,19 +1,19 @@
 <template>
-  <div class="box has-text-weight-bold">
+  <div class="box formulario has-text-weight-bold">
     <slot></slot>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
-export default defineComponent ({
-    name: 'Box-template'
-})
+export default defineComponent({
+  name: "Box-template",
+});
 </script>
 
 <style scoped>
-.box{
-    background: #FAF0CA;
+.box {
+  background: #faf0ca;
 }
 </style>
