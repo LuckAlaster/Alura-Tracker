@@ -11,7 +11,7 @@ export default defineComponent({
   name: "Box-template",
   data (){
     return{
-      estiloBox: { 
+      estiloBox: {
       backgroundColor: '#faf0ca'
       }
     }

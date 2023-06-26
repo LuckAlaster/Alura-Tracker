@@ -75,4 +75,7 @@ main.escuro {
 .conteudo {
   background-color: var(--bg-primario);
 }
+.box {
+  border-radius: 0px;
+}
 </style>
